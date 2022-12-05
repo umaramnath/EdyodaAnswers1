@@ -1,0 +1,32 @@
+1. go to root (cd /root/ ) . (both Master and Worker can perform this in their instances)
+
+2. git clone https://github.com/ashishrpandey/example-voting-app
+
+3. go to /root/example-voting-app/k8s-specifications
+
+4. [root@ip-172-31-7-102 k8s-specifications]# kubectl apply -f .
+
+5. for voting and result pods, Observe that NodePort is assigned.
+
+6. take your publicIP (your instance IP) : NodePort ► open 2 browsers , one for VOTING and one for Results.
+
+7 try voting and see the results paralelly in results page.
+
+
+
+8. Now try to delete the Pods one by one (first voting Pod, then worker pod, then db pod) and see what happens to the voting and result app after deleting.
+
+
+voting pod -> No effect
+Worked pod -> No effect
+db pod -> DB pod restarts. Worker pod shows "Error". So, had to restart the Worker pod.
+
+
+9 Write your observations in a text file.
+
+10. what happens after db pod deletion. 
+
+11. complete the assignment by making the result pod work. (if you delete db pod, results would not be captured.So repeat what we did in the class in order to make the result pod work.).
+
+12. Write in the text file, what you did in order to make the result pod work.
+
